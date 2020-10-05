@@ -23,7 +23,7 @@ public class ClimaSatellit {
 	public static void main(String[] args) {
 		String API_KEY = "b10a74f0720e974fc75a3e2bd810094e";
 		String LOCATION = "Sao paulo,BR";
-		String urlString = "https://api.openweathermap.org/data/2.5/weather?q= "+LOCATION+"&appid="+API_KEY+"&lang=pt&units=metric";
+		String urlString = "https://api.openweathermap.org/data/2.5/weather?q="+LOCATION+"&appid="+API_KEY+"&lang=pt&units=metric";
 	
 	
 	 try {
@@ -38,16 +38,23 @@ public class ClimaSatellit {
 		 
 		 rd.close();
 		 System.out.println(result);
-		 
+	 
 		 
 		 Map<String, Object> respMap = jsonToMap(result.toString());
 		 Map<String, Object> mainMap = jsonToMap(respMap.get("main").toString());
 		 Map<String, Object> windMap = jsonToMap(respMap.get("wind").toString());
+		 Map<String, Object> coordMap = jsonToMap(respMap.get("coord").toString()); 
+ 
 		 
 		 System.out.println("Atual Temperatura :"+ mainMap.get("temp"));
 		 System.out.println("Atual Humidade :"+ mainMap.get("humidity"));
 		 System.out.println("Velocidade dos ventos :"+ windMap.get("deg"));
-		 
+		 System.out.println("longitude :"+ coordMap.get("lon"));
+		 System.out.println("latitude :"+ coordMap.get("lat"));
+
+ 
+
+ 		 
 	 }catch (IOException e) {
 		 System.out.println(e.getMessage());
   	}
