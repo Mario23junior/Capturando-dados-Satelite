@@ -40,6 +40,13 @@ public class ClimaSatellit {
 		 System.out.println(result);
 		 
 		 
+		 Map<String, Object> respMap = jsonToMap(result.toString());
+		 Map<String, Object> mainMap = jsonToMap(respMap.get("main").toString());
+		 Map<String, Object> windMap = jsonToMap(respMap.get("wind").toString());
+		 
+		 
+		 
+		 
 	 }catch (Exception e) {
 		 e.printStackTrace();
  	}
