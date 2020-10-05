@@ -14,5 +14,11 @@ public class ClimaSatellit {
 		);
 		return map;
 	}
+	
+	public static void main(String[] args) {
+		String API_KEY = "b10a74f0720e974fc75a3e2bd810094e";
+		String LOCATION = "Raleigh,NC";
+		String urlString = "http://api.openweathermap.org/data/2.5/weather?q="+LOCATION+"&appid="+API_KEY;
+	}
  
 }
